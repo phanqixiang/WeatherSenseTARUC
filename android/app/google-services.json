@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "835531918452",
+    "firebase_url": "https://weathersense-daa83.firebaseio.com",
+    "project_id": "weathersense-daa83",
+    "storage_bucket": "weathersense-daa83.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835531918452:android:812452ce99439a44721521",
+        "android_client_info": {
+          "package_name": "com.example.weathersense_taruc_2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835531918452-n3s27co89bldnf1eeiij0206hcsvgldv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7kuZUCGVuJfi2o5VQG0LpfJYofLjkoWo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835531918452-n3s27co89bldnf1eeiij0206hcsvgldv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
