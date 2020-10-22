@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weathersense_taruc_2020/constants.dart';
-import 'package:weathersense_taruc_2020/Screen/SettingPage.dart';
+import 'package:weathersense_taruc_2020/Components/setting_button.dart';
 
 class StationPage extends StatefulWidget {
   @override
@@ -13,33 +12,14 @@ class _StationPageState extends State<StationPage> {
     return Scaffold(
       backgroundColor: Colors.white54,
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-          onPressed: () {},
-        ),
+        centerTitle: true,
         title: Text(
-          'Station',
+          'Station Management',
           style: TextStyle(color: Colors.white),
         ),
         actions: [
           Center(
-            child: IconButton(
-              icon: Icon(
-                Icons.settings,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  backgroundColor: Colors.white,
-                  context: context,
-                  builder: (context) => SettingPage(),
-                );
-              },
-            ),
+            child: SettingButton(),
           ),
         ],
       ),

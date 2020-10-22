@@ -31,6 +31,8 @@ flutter:
 
   assets:
     - assets/
+    - assets/triangle.png
+    - assets/clock.png
 
   uses-material-design: true
 

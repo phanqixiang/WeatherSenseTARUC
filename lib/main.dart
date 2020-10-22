@@ -9,7 +9,13 @@ import 'Screen/StationPage.dart';
 import 'constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/clock.svg'), null);
+  await precachePicture(
+      ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/triangle.svg'),
+      null);
   runApp(WeatherSenseApp());
 }
 
@@ -27,6 +33,12 @@ class _WeatherSenseAppState extends State<WeatherSenseApp> {
     ReportPage(),
     NotificationPage(),
   ];
+
+  @override
+  void initState() {
+    precacheImage(AssetImage('assets/triangle.png'), context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
