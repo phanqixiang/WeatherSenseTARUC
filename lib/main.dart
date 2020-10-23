@@ -1,13 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:weathersense_taruc_2020/State/MQTTAppState.dart';
 import 'Screen/ForecastPage.dart';
 import 'Screen/RealtimePage.dart';
 import 'Screen/ReportPage.dart';
-import 'Screen/SettingPage.dart';
+import 'package:flutter/cupertino.dart';
 import 'Screen/NotificationPage.dart';
 import 'Screen/StationPage.dart';
 import 'constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:weathersense_taruc_2020/State/MQTTAppState.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +32,10 @@ class _WeatherSenseAppState extends State<WeatherSenseApp> {
   final tabs = [
     StationPage(),
     ForecastPage(),
-    RealtimePage(),
+    ChangeNotifierProvider<MQTTAppState>(
+      create: (context) => MQTTAppState(),
+      child: RealtimePage(),
+    ),
     ReportPage(),
     NotificationPage(),
   ];

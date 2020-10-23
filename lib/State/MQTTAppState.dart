@@ -1,16 +1,22 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:weathersense_taruc_2020/Model/MQTTWeather.dart';
 
-enum MQTTAppConnectionState { connected, disconnected, connecting }
+enum MQTTAppConnectionState {
+  connected,
+  disconnected,
+  connecting,
+}
 
-class RealtimeState with ChangeNotifier {
+class MQTTAppState with ChangeNotifier {
   MQTTAppConnectionState _appConnectionState =
       MQTTAppConnectionState.disconnected;
   String _receivedText = '';
   String _historyText = '';
+  MQTTWeather weatherData;
 
   void setReceivedText(String text) {
-    _receivedText = text;
-    _historyText = _historyText + '\n' + _receivedText;
+    weatherData = MQTTWeather(text);
     notifyListeners();
   }
 
