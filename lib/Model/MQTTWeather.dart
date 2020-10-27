@@ -1,23 +1,23 @@
 import 'package:weathersense_taruc_2020/service.dart';
 
 class MQTTWeather {
-  double _temp = 0;
-  double _humidity = 0;
-  double _pressure = 0;
-  int _hailDuration = 0;
-  int _rainDuration = 0;
-  double _rainIntensity = 0;
-  double _rainAccumulation = 0;
+  double _temp;
+  double _humidity;
+  double _pressure;
+  int _hailDuration;
+  int _rainDuration;
+  double _rainIntensity;
+  double _rainAccumulation;
 
-  double _minWindDirection = 0;
-  double _avgWindDirection = 0;
-  double _maxWindDirection = 0;
+  double _minWindDirection;
+  double _avgWindDirection;
+  double _maxWindDirection;
 
-  double _minWindSpeed = 0;
-  double _maxWindSpeed = 0;
-  double _avgWindSpeed = 0;
+  double _minWindSpeed;
+  double _maxWindSpeed;
+  double _avgWindSpeed;
 
-  MQTTWeather(String weatherData) {
+/*  MQTTWeather(String weatherData) {
     _temp = double.parse(convert(weatherData, 'Ta'));
     _humidity = double.parse(convert(weatherData, 'Ua'));
     _pressure = double.parse(convert(weatherData, 'Pa'));
@@ -33,6 +33,42 @@ class MQTTWeather {
     _minWindSpeed = double.parse(convert(weatherData, 'Dn'));
     _maxWindSpeed = double.parse(convert(weatherData, 'Dm'));
     _avgWindSpeed = double.parse(convert(weatherData, 'Dx'));
+  }*/
+
+  void update(String weatherData) {
+    _temp = double.parse(convert(weatherData, 'Ta'));
+    _humidity = double.parse(convert(weatherData, 'Ua'));
+    _pressure = double.parse(convert(weatherData, 'Pa'));
+    _hailDuration = int.parse(convert(weatherData, 'Hd'));
+    _rainDuration = int.parse(convert(weatherData, 'Rd'));
+    _rainIntensity = double.parse(convert(weatherData, 'Ri'));
+    _rainAccumulation = double.parse(convert(weatherData, 'Rc'));
+
+    _minWindDirection = double.parse(convert(weatherData, 'Dn'));
+    _avgWindDirection = double.parse(convert(weatherData, 'Dm'));
+    _maxWindDirection = double.parse(convert(weatherData, 'Dx'));
+
+    _minWindSpeed = double.parse(convert(weatherData, 'Sn'));
+    _maxWindSpeed = double.parse(convert(weatherData, 'Sm'));
+    _avgWindSpeed = double.parse(convert(weatherData, 'Sx'));
+  }
+
+  MQTTWeather() {
+    _temp = 0;
+    _humidity = 0;
+    _pressure = 0;
+    _hailDuration = 0;
+    _rainDuration = 0;
+    _rainIntensity = 0;
+    _rainAccumulation = 0;
+
+    _minWindDirection = 0;
+    _avgWindDirection = 0;
+    _maxWindDirection = 0;
+
+    _minWindSpeed = 0;
+    _maxWindSpeed = 0;
+    _avgWindSpeed = 0;
   }
   double get temp => _temp;
   double get humidity => _humidity;

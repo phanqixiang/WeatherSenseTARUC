@@ -9,14 +9,20 @@ enum MQTTAppConnectionState {
 }
 
 class MQTTAppState with ChangeNotifier {
-  MQTTAppConnectionState _appConnectionState =
-      MQTTAppConnectionState.disconnected;
-  String _receivedText = '';
-  String _historyText = '';
+  MQTTAppConnectionState _appConnectionState;
+  String _receivedText;
+  String _historyText;
   MQTTWeather weatherData;
 
+  MQTTAppState() {
+    weatherData = MQTTWeather();
+    _historyText = '';
+    _receivedText = '';
+    _appConnectionState = MQTTAppConnectionState.disconnected;
+  }
+
   void setReceivedText(String text) {
-    weatherData = MQTTWeather(text);
+    weatherData.update(text);
     notifyListeners();
   }
 

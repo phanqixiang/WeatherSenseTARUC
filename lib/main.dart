@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:weathersense_taruc_2020/Screen/LoadingScreen.dart';
 import 'package:weathersense_taruc_2020/State/MQTTAppState.dart';
 import 'Screen/ForecastPage.dart';
 import 'Screen/RealtimePage.dart';
@@ -19,7 +20,17 @@ Future<void> main() async {
   await precachePicture(
       ExactAssetPicture(SvgPicture.svgStringDecoder, 'assets/triangle.svg'),
       null);
-  runApp(WeatherSenseApp());
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoadingScreen(),
+    );
+  }
 }
 
 class WeatherSenseApp extends StatefulWidget {
@@ -41,19 +52,20 @@ class _WeatherSenseAppState extends State<WeatherSenseApp> {
   ];
 
   @override
-  void initState() {
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
     precacheImage(AssetImage('assets/triangle.png'), context);
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: mainColor,
         accentColor: Colors.white,
       ),
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: tabs[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
